@@ -1,10 +1,7 @@
 package cn.roy.relearn.android.lifecycle
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.MotionEvent
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import cn.roy.relearn.android.R
 
@@ -14,29 +11,15 @@ import cn.roy.relearn.android.R
  * @Date 2020/11/9
  * @Version V1.0.0
  */
-class AActivity : AppCompatActivity() {
+class CActivity : AppCompatActivity() {
     companion object {
-        val TAG = "AActivity"
+        val TAG = "CActivity"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         log("onCreate()")
-
-        setContentView(R.layout.activity_a)
-
-        findViewById<Button>(R.id.button).setOnClickListener{
-            var intent = Intent(this,BActivity::class.java)
-            startActivity(intent)
-        }
-        findViewById<Button>(R.id.button2).setOnClickListener{
-            var intent = Intent(this,CActivity::class.java)
-            startActivity(intent)
-        }
-        findViewById<Button>(R.id.button3).setOnClickListener{
-            var intent = Intent(this,DActivity::class.java)
-            startActivity(intent)
-        }
+        setContentView(R.layout.activity_a);
     }
 
     override fun onRestart() {
@@ -77,18 +60,6 @@ class AActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         log("onDestroy()")
-    }
-
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        if (event != null) {
-            when(event.action){
-                MotionEvent.ACTION_DOWN -> {
-                    log("监听到点击事件")
-                    return true
-                }
-            }
-        }
-        return super.onTouchEvent(event)
     }
 
     private fun log(log: String) {

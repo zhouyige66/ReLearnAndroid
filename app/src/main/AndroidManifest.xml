@@ -20,6 +20,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".lifecycle.AActivity" />
+        <activity
+            android:name=".lifecycle.BActivity"
+            android:theme="@style/ThemeOverlay.ReLearnAndroid.Transparent" />
+        <activity
+            android:name=".lifecycle.CActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <activity
+            android:name=".lifecycle.DActivity"
+            android:theme="@style/ThemeOverlay.ReLearnAndroid.Translucent" />
     </application>
 
 </manifest>
