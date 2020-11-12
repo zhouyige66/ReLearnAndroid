@@ -30,6 +30,21 @@
         <activity
             android:name=".lifecycle.DActivity"
             android:theme="@style/ThemeOverlay.ReLearnAndroid.Translucent" />
+        <activity
+            android:name=".launchmodel.StandardActivity"
+            android:launchMode="standard" />
+        <activity
+            android:name=".launchmodel.Standard2Activity"
+            android:launchMode="standard" />
+        <activity
+            android:name=".launchmodel.SingleTopActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".launchmodel.SingleTaskActivity"
+            android:launchMode="standard" />
+        <activity
+            android:name=".launchmodel.SingleInstanceActivity"
+            android:launchMode="standard" />
     </application>
 
 </manifest>
