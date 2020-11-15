@@ -29,7 +29,7 @@
 
     <style name="ThemeOverlay.ReLearnAndroid.Transparent" parent="Theme.AppCompat.Light">
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackground">#30FFFFFF</item>
     </style>
 
     <style name="ThemeOverlay.ReLearnAndroid.Translucent" parent="Theme.AppCompat.Light">

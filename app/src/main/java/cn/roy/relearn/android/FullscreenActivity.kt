@@ -10,7 +10,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import cn.roy.relearn.android.launchmodel.StandardActivity
+import cn.roy.relearn.android.lifecycle.AActivity
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -83,7 +83,7 @@ class FullscreenActivity : AppCompatActivity() {
 //        findViewById<Button>(R.id.dummy_button).setOnTouchListener(delayHideTouchListener)
         findViewById<Button>(R.id.dummy_button).setOnClickListener {
             var intent = Intent()
-            intent.setClass(this, StandardActivity::class.java)
+            intent.setClass(this, AActivity::class.java)
             startActivity(intent)
         }
     }
