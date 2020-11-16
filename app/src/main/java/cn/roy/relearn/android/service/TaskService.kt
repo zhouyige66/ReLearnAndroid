@@ -9,6 +9,7 @@ import cn.roy.relearn.android.launchmodel.SingleInstanceActivity
 import cn.roy.relearn.android.launchmodel.SingleTaskActivity
 import cn.roy.relearn.android.launchmodel.SingleTopActivity
 import cn.roy.relearn.android.launchmodel.StandardActivity
+import cn.roy.relearn.android.lifecycle.AActivity
 
 /**
  * @Description:
@@ -16,7 +17,7 @@ import cn.roy.relearn.android.launchmodel.StandardActivity
  * @Date: 11/15/20 8:49 PM
  * @Version: v1.0
  */
-class TaskService:Service(){
+class TaskService : Service() {
 
     override fun onCreate() {
         super.onCreate()
@@ -26,15 +27,49 @@ class TaskService:Service(){
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         log("onStartCommand()")
         var activityIntent = Intent()
-        activityIntent.flags = FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP
         var flag = intent?.getIntExtra("flag", 0)
-        when (flag){
-            0 -> activityIntent.setClass(this, StandardActivity::class.java)
-            1 -> activityIntent.setClass(this, SingleTopActivity::class.java)
-            2 -> activityIntent.setClass(this, SingleTaskActivity::class.java)
-            3 -> activityIntent.setClass(this, SingleInstanceActivity::class.java)
+        when (flag) {
+            1 -> {
+                activityIntent.setClass(this, StandardActivity::class.java)
+                activityIntent.flags = FLAG_ACTIVITY_NEW_TASK
+                startActivity(activityIntent)
+            }
+            2 -> {
+                activityIntent.setClass(this, StandardActivity::class.java)
+                activityIntent.flags = FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                startActivity(activityIntent)
+            }
+            3 -> {
+                activityIntent.setClass(this, StandardActivity::class.java)
+                activityIntent.flags = FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(activityIntent)
+            }
+            4 -> {
+                activityIntent.setClass(this, StandardActivity::class.java)
+                activityIntent.flags = FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(activityIntent)
+            }
+            5 -> {
+                activityIntent.setClass(this, SingleTopActivity::class.java)
+                activityIntent.flags = FLAG_ACTIVITY_NEW_TASK
+                startActivity(activityIntent)
+            }
+            6 -> {
+                activityIntent.setClass(this, SingleTopActivity::class.java)
+                activityIntent.flags = FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                startActivity(activityIntent)
+            }
+            7 -> {
+                activityIntent.setClass(this, SingleTopActivity::class.java)
+                activityIntent.flags = FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(activityIntent)
+            }
+            8 -> {
+                activityIntent.setClass(this, SingleTopActivity::class.java)
+                activityIntent.flags = FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(activityIntent)
+            }
         }
-        startActivity(activityIntent)
         return super.onStartCommand(intent, flags, startId)
     }
 

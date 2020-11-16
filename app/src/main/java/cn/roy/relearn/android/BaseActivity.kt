@@ -35,6 +35,7 @@ open class BaseActivity : AppCompatActivity(), View.OnClickListener {
         findViewById<Button>(R.id.button).setOnClickListener(this)
         findViewById<Button>(R.id.button2).setOnClickListener(this)
         findViewById<Button>(R.id.button3).setOnClickListener(this)
+
         findViewById<Button>(R.id.button4).setOnClickListener(this)
         findViewById<Button>(R.id.button5).setOnClickListener(this)
         findViewById<Button>(R.id.button6).setOnClickListener(this)
@@ -45,6 +46,11 @@ open class BaseActivity : AppCompatActivity(), View.OnClickListener {
         findViewById<Button>(R.id.button10).setOnClickListener(this)
         findViewById<Button>(R.id.button11).setOnClickListener(this)
         findViewById<Button>(R.id.button12).setOnClickListener(this)
+
+        findViewById<Button>(R.id.button13).setOnClickListener(this)
+        findViewById<Button>(R.id.button14).setOnClickListener(this)
+        findViewById<Button>(R.id.button15).setOnClickListener(this)
+        findViewById<Button>(R.id.button16).setOnClickListener(this)
     }
 
     override fun onRestart() {
@@ -142,29 +148,49 @@ open class BaseActivity : AppCompatActivity(), View.OnClickListener {
 
             R.id.button9 -> {
                 intent.setClass(this, TaskService::class.java)
-                intent.putExtra("flag", 0)
+                intent.putExtra("flag", 1)
                 startService(intent)
             }
             R.id.button10 -> {
                 intent.setClass(this, TaskService::class.java)
-                intent.putExtra("flag", 1)
+                intent.putExtra("flag", 2)
                 startService(intent)
             }
             R.id.button11 -> {
                 intent.setClass(this, TaskService::class.java)
-                intent.putExtra("flag", 2)
+                intent.putExtra("flag", 3)
                 startService(intent)
             }
             R.id.button12 -> {
                 intent.setClass(this, TaskService::class.java)
-                intent.putExtra("flag", 3)
+                intent.putExtra("flag", 4)
+                startService(intent)
+            }
+            R.id.button13 -> {
+                intent.setClass(this, TaskService::class.java)
+                intent.putExtra("flag", 5)
+                startService(intent)
+            }
+            R.id.button14 -> {
+                intent.setClass(this, TaskService::class.java)
+                intent.putExtra("flag", 6)
+                startService(intent)
+            }
+            R.id.button15 -> {
+                intent.setClass(this, TaskService::class.java)
+                intent.putExtra("flag", 7)
+                startService(intent)
+            }
+            R.id.button16 -> {
+                intent.setClass(this, TaskService::class.java)
+                intent.putExtra("flag", 8)
                 startService(intent)
             }
         }
     }
 
     open fun log(log: String) {
-        Log.d(this.javaClass.simpleName, log)
+        Log.d(this.toString().substringAfter("android."), log)
     }
 
 }
