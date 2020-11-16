@@ -26,13 +26,13 @@ class TaskService:Service(){
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         log("onStartCommand()")
         var activityIntent = Intent()
-        activityIntent.flags = FLAG_ACTIVITY_NEW_TASK
-        var flag = intent?.getIntExtra("flag",0)
+        activityIntent.flags = FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP
+        var flag = intent?.getIntExtra("flag", 0)
         when (flag){
-            0->activityIntent.setClass(this,StandardActivity::class.java)
-            1->activityIntent.setClass(this,SingleTopActivity::class.java)
-            2->activityIntent.setClass(this,SingleTaskActivity::class.java)
-            3->activityIntent.setClass(this,SingleInstanceActivity::class.java)
+            0 -> activityIntent.setClass(this, StandardActivity::class.java)
+            1 -> activityIntent.setClass(this, SingleTopActivity::class.java)
+            2 -> activityIntent.setClass(this, SingleTaskActivity::class.java)
+            3 -> activityIntent.setClass(this, SingleInstanceActivity::class.java)
         }
         startActivity(activityIntent)
         return super.onStartCommand(intent, flags, startId)

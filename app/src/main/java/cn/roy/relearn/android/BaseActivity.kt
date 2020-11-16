@@ -52,6 +52,11 @@ open class BaseActivity : AppCompatActivity(), View.OnClickListener {
         log("onRestart()")
     }
 
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        log("onNewIntent")
+    }
+
     override fun onStart() {
         super.onStart()
         log("onStart()")
