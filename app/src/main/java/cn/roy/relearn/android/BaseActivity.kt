@@ -58,14 +58,22 @@ open class BaseActivity : AppCompatActivity(), View.OnClickListener {
         log("onRestart()")
     }
 
-    override fun onNewIntent(intent: Intent?) {
-        super.onNewIntent(intent)
-        log("onNewIntent")
-    }
-
     override fun onStart() {
         super.onStart()
         log("onStart()")
+    }
+
+    /**
+     * singleTask:
+     *  1.位于栈顶:
+     *      onPause->onNewIntent->onResume
+     *  2.未在栈顶:
+     *      onRestart->onStart->onNewIntent->onResume
+     * singleTop: onPause->onNewIntent->onResume
+     */
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        log("onNewIntent")
     }
 
     override fun onResume() {

@@ -38,10 +38,10 @@
             android:launchMode="singleTop" />
         <activity
             android:name=".launchmodel.SingleTaskActivity"
-            android:launchMode="standard" />
+            android:launchMode="singleTask" />
         <activity
             android:name=".launchmodel.SingleInstanceActivity"
-            android:launchMode="standard" />
+            android:launchMode="singleInstance" />
 
         <service
             android:name=".service.TaskService" />
