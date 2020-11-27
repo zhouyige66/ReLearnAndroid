@@ -86,6 +86,11 @@ class FullscreenActivity : AppCompatActivity() {
             intent.setClass(this, AActivity::class.java)
             startActivity(intent)
         }
+        findViewById<Button>(R.id.shadow_test).setOnClickListener {
+            var intent = Intent()
+            intent.setClass(this, ShadowTestActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {

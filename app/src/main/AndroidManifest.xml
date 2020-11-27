@@ -43,6 +43,10 @@
             android:name=".launchmodel.SingleInstanceActivity"
             android:launchMode="singleInstance" />
 
+        <activity
+            android:name=".ShadowTestActivity"
+            android:launchMode="singleInstance" />
+
         <service
             android:name=".service.TaskService" />
     </application>
